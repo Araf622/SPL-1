@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1645442408 source:e:\2-1\spl-1\checkerboard.cpp
+	"header.h"
+
+1645442287 e:\2-1\spl-1\header.h
+	<bits/stdc++.h>
+	<graphics.h>
+	<windows.h>
+
+1645442287 source:e:\2-1\spl-1\main.cpp
+	"header.h"
+
