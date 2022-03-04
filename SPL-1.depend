@@ -1,12 +1,47 @@
 # depslib dependency file v1.0
-1645442408 source:e:\2-1\spl-1\checkerboard.cpp
+1646324358 source:e:\2-1\spl-1\checkerboard.cpp
 	"header.h"
 
-1645442287 e:\2-1\spl-1\header.h
+1646351530 e:\2-1\spl-1\header.h
 	<bits/stdc++.h>
 	<graphics.h>
 	<windows.h>
 
-1645442287 source:e:\2-1\spl-1\main.cpp
+1646349006 source:e:\2-1\spl-1\main.cpp
+	"header.h"
+
+1645442502 source:e:\2-1\spl-1\draw_checkers.cpp
+
+1646324403 source:e:\2-1\spl-1\movecheckers.cpp
+	"header.h"
+
+1646202256 source:e:\2-1\spl-1\findposition.cpp
+	"header.h"
+
+1646282028 source:e:\2-1\spl-1\removecircle.cpp
+	"header.h"
+
+1646306517 source:e:\2-1\spl-1\addchecker.cpp
+	"header.h"
+
+1646375439 source:e:\2-1\spl-1\checkerboardconsole.cpp
+	"header.h"
+
+1646324358 source:e:\2-1\spl-1\console_addchecker.cpp
+	"header.h"
+
+1646324358 source:e:\2-1\spl-1\console_removechecker.cpp
+	"header.h"
+
+1646371792 source:e:\2-1\spl-1\play.cpp
+	"header.h"
+
+1646370479 source:e:\2-1\spl-1\kill.cpp
+	"header.h"
+
+1646329848 source:e:\2-1\spl-1\nocheckers.cpp
+	"header.h"
+
+1646368845 source:e:\2-1\spl-1\nomove.cpp
 	"header.h"
 

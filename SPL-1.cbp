@@ -32,9 +32,21 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="addChecker.cpp" />
 		<Unit filename="checkerBoard.cpp" />
+		<Unit filename="checkerBoardConsole.cpp" />
+		<Unit filename="console_addChecker.cpp" />
+		<Unit filename="console_removeChecker.cpp" />
+		<Unit filename="draw_checkers.cpp" />
+		<Unit filename="findPosition.cpp" />
 		<Unit filename="header.h" />
+		<Unit filename="kill.cpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="moveCheckers.cpp" />
+		<Unit filename="noCheckers.cpp" />
+		<Unit filename="noMove.cpp" />
+		<Unit filename="play.cpp" />
+		<Unit filename="removeCircle.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
