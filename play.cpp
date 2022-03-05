@@ -8,6 +8,7 @@ void play(char checker_board[][8]){
     int is_kill;
     int p1_checkers = 12;       // no of PLAYER 1 checkers
     int p2_checkers = 12;       // no of PLAYER 2 checkers
+    POINT cursor;
     bool check_move = true;
     //int i, j;
     bool flag = true;
@@ -18,6 +19,10 @@ void play(char checker_board[][8]){
             // ******** PLAYER 1 **********
             if(player_selector%2){
 
+                 // ********CHECKS WIN CONDITION (NO CHECKERS) *****
+                no_checkers(p2_checkers, '1');
+
+
                 //  ********CHECKS WIN CONDITION (NO MOVE) *****
                 check_move = no_move(checker_board ,'1');
                 if(check_move == false){
@@ -25,15 +30,14 @@ void play(char checker_board[][8]){
                     exit(0);
                 }
 
-                // ********CHECKS WIN CONDITION (NO CHECKERS) *****
-                no_checkers(p2_checkers, '1');
-
-                cout << "Player 1's move: " <<endl;
+                cout << "\t\t\t\t" << "Player 1's move: " <<endl;
 
                 // ask for checker until right position is entered
                 while(1){
-                    cout << "Select checker : ";
-                    cin >> source_y >> source_x;    // matrix input
+                    // ... INPUT CHECKER POSTION
+                    cout << "\t\t\t\t" << "Select checker : ";
+                    cin >> source_y >> source_x;
+
 
                     //cout << "checker : " << checker_board[source_y][source_x]<<endl;
 
@@ -42,12 +46,12 @@ void play(char checker_board[][8]){
                         //move_selector++;
                         break;
                     }
-                    else    cout << "Wrong selection!" << endl;
+                    else    cout << "\t\t\t\t" << "Wrong selection!" << endl;
                 }
 
                 // ask for destination until right one is entered
                 while(1){
-                    cout << "Select destination : ";
+                    cout << "\t\t\t\tSelect destination : ";
                     cin >> dest_y >> dest_x;
 
                     int diff_x = dest_x - source_x;
@@ -60,15 +64,9 @@ void play(char checker_board[][8]){
                         if(checker_board[dest_y][dest_x] == '0'){
                             //checks if the move is valid
                             if((diff_x == -1 || diff_x == 1) && (diff_y == -1)){
-                                //move
                                 console_removeChecker(checker_board,source_x, source_y);
-                                //checker_board[source_y][source_x] = 0;
 
                                 console_addChecker(checker_board, dest_x, dest_y, '1');
-                                //checker_board[dest_y][dest_x] = 1;
-
-                                //cout << "tst" <<endl;
-
                                 system("cls");
                                 draw_consoleCheckerBoard(checker_board);
                                 player_selector++;
@@ -80,7 +78,7 @@ void play(char checker_board[][8]){
                                 is_kill = kill(checker_board, source_x, source_y, diff_x, diff_y, '1');
 
                                 if(!is_kill){
-                                    cout << "Wrong move"<<endl;
+                                    cout << "\t\t\t\t" << "Wrong move"<<endl;
                                     break;
                                 }
                                 p2_checkers--;
@@ -92,12 +90,12 @@ void play(char checker_board[][8]){
                             }
 
                             else {
-                                cout << "Wrong move!" << endl;
+                                cout << "\t\t\t\t" << "Wrong move!" << endl;
                                 break;
                             }
                         }
                         else{
-                             cout << "Wrong move!" << endl;
+                             cout << "\t\t\t\t" << "Wrong move!" << endl;
                              break;
                         }
                     }
@@ -122,11 +120,11 @@ void play(char checker_board[][8]){
                 // ******** CHECKS WIN CONDITION (NO CHECKERS) *****
                 no_checkers(p1_checkers, '2');
 
-                cout << "Player 2's move: " <<endl;
+                cout << "\t\t\t\t" << "Player 2's move: " <<endl;
 
                 // ask for checker until right position is entered
                 while(1){
-                    cout << "Select checker : ";
+                    cout << "\t\t\t\t" << "Select checker : ";
                     cin >> source_y >> source_x;    //matrix input
 
                     //checks validity
@@ -134,12 +132,12 @@ void play(char checker_board[][8]){
                         move_selector++;
                         break;
                     }
-                    else    cout << "Wrong selection!" << endl;
+                    else    cout << "\t\t\t\t" << "Wrong selection!" << endl;
                 }
 
                 // ask for destination until right one is entered
                 while(1){
-                    cout << "Select destination : ";
+                    cout << "\t\t\t\t" << "Select destination : ";
                     cin >> dest_y >> dest_x;
 
                     int diff_x = dest_x - source_x;
@@ -165,7 +163,7 @@ void play(char checker_board[][8]){
                             else if((diff_x == -2 || diff_x == 2) && (diff_y == 2)){
                                 is_kill = kill(checker_board, source_x, source_y, diff_x, diff_y, '2');
                                 if(!is_kill){
-                                    cout << "Wrong move!"<<endl;
+                                    cout << "\t\t\t\t" << "Wrong move!"<<endl;
                                     break;
                                 }
                                 p1_checkers--;
@@ -177,17 +175,17 @@ void play(char checker_board[][8]){
                             }
 
                             else{
-                                cout << "Wrong move!" << endl;
+                                cout << "\t\t\t\t" << "Wrong move!" << endl;
                                 break;
                             }
                         }
                         else{
-                             cout << "Wrong move!" << endl;
+                             cout << "\t\t\t\t" << "Wrong move!" << endl;
                              break;
                         }
                     }
                     else{
-                        cout << "Wrong move!" << endl;
+                        cout << "\t\t\t\t" << "Wrong move!" << endl;
                         break;
                     }
                  }

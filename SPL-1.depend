@@ -7,7 +7,7 @@
 	<graphics.h>
 	<windows.h>
 
-1646349006 source:e:\2-1\spl-1\main.cpp
+1646420075 source:e:\2-1\spl-1\main.cpp
 	"header.h"
 
 1645442502 source:e:\2-1\spl-1\draw_checkers.cpp
@@ -24,7 +24,7 @@
 1646306517 source:e:\2-1\spl-1\addchecker.cpp
 	"header.h"
 
-1646375439 source:e:\2-1\spl-1\checkerboardconsole.cpp
+1646420179 source:e:\2-1\spl-1\checkerboardconsole.cpp
 	"header.h"
 
 1646324358 source:e:\2-1\spl-1\console_addchecker.cpp
@@ -33,7 +33,7 @@
 1646324358 source:e:\2-1\spl-1\console_removechecker.cpp
 	"header.h"
 
-1646371792 source:e:\2-1\spl-1\play.cpp
+1646468566 source:e:\2-1\spl-1\play.cpp
 	"header.h"
 
 1646370479 source:e:\2-1\spl-1\kill.cpp
