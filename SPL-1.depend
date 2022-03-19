@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1646324358 source:e:\2-1\spl-1\checkerboard.cpp
+1647671718 source:e:\2-1\spl-1\checkerboard.cpp
 	"header.h"
 
-1646351530 e:\2-1\spl-1\header.h
+1647671577 e:\2-1\spl-1\header.h
 	<bits/stdc++.h>
 	<graphics.h>
 	<windows.h>
 
-1646420075 source:e:\2-1\spl-1\main.cpp
+1647671577 source:e:\2-1\spl-1\main.cpp
 	"header.h"
 
 1645442502 source:e:\2-1\spl-1\draw_checkers.cpp
@@ -15,16 +15,16 @@
 1646324403 source:e:\2-1\spl-1\movecheckers.cpp
 	"header.h"
 
-1646202256 source:e:\2-1\spl-1\findposition.cpp
+1647671577 source:e:\2-1\spl-1\findposition.cpp
 	"header.h"
 
-1646282028 source:e:\2-1\spl-1\removecircle.cpp
+1647671568 source:e:\2-1\spl-1\removecircle.cpp
 	"header.h"
 
-1646306517 source:e:\2-1\spl-1\addchecker.cpp
+1647671552 source:e:\2-1\spl-1\addchecker.cpp
 	"header.h"
 
-1646502877 source:e:\2-1\spl-1\checkerboardconsole.cpp
+1647671520 source:e:\2-1\spl-1\checkerboardconsole.cpp
 	"header.h"
 
 1646324358 source:e:\2-1\spl-1\console_addchecker.cpp
@@ -33,10 +33,10 @@
 1646324358 source:e:\2-1\spl-1\console_removechecker.cpp
 	"header.h"
 
-1646502773 source:e:\2-1\spl-1\play.cpp
+1647671577 source:e:\2-1\spl-1\play.cpp
 	"header.h"
 
-1646370479 source:e:\2-1\spl-1\kill.cpp
+1647671496 source:e:\2-1\spl-1\kill.cpp
 	"header.h"
 
 1646502848 source:e:\2-1\spl-1\nocheckers.cpp
@@ -46,4 +46,19 @@
 	"header.h"
 
 1646795737 source:e:\2-1\spl-1\king_move.cpp
+
+1647671446 source:e:\2-1\spl-1\get_mode_click.cpp
+	"header.h"
+
+1647671483 source:e:\2-1\spl-1\get_source_click.cpp
+	"header.h"
+
+1647671797 source:e:\2-1\spl-1\select_mode.cpp
+	"header.h"
+
+1647671772 source:e:\2-1\spl-1\start_page.cpp
+	"header.h"
+
+1647671930 source:e:\2-1\spl-1\get_destination_click.cpp
+	"header.h"
 

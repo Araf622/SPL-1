@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 #include <graphics.h>
 #include<windows.h>
 using namespace std;
@@ -11,11 +11,16 @@ void console_addChecker(char checker_board[][8], int x, int y, char checker);
 int kill(char checker_board[][8],int source_x, int source_y, int diff_x, int diff_y, char checker);
 void no_checkers(int n, char checker);
 bool no_move(char checker_board[][8] ,char checker);
+void get_source_click(int click[]);
+void get_destination_click(int click[]);
+void start();
+int select_mode();
+void get_mode_click(int click[]);
 
 void draw_checkerBoard(char checker_board[][8]);
 void move_checkers(char checker_board[][8]);
 int find_x_position(int x);
 int find_y_position(int y);
-void remove_checker(int x, int y);
-void add_checker(int x, int y);
+void remove_checker(int y, int x);
+void add_checker(int y, int x, char checker);
 

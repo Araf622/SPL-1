@@ -50,7 +50,6 @@ void draw_checkerBoard(char checker_board[][8])
         y+=80;
     }
 
-    move_checkers(checker_board);
     getch();
 }
 

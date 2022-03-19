@@ -2,7 +2,8 @@
 
 int find_x_position(int x){
     for(int i = 0; i < 8; i++){
-        if((x > i*80 + 450) && x < ((i+1)*80 + 450)){
+        if((x > (i*80 + 450)) && x < (((i+1)*80 + 450))){
+            cout << (i*80 + 450) << " " <<  ((i+1)*80 + 450) << endl;
             return i;
         }
     }
