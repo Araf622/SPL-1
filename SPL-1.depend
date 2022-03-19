@@ -24,7 +24,7 @@
 1646306517 source:e:\2-1\spl-1\addchecker.cpp
 	"header.h"
 
-1646420179 source:e:\2-1\spl-1\checkerboardconsole.cpp
+1646502877 source:e:\2-1\spl-1\checkerboardconsole.cpp
 	"header.h"
 
 1646324358 source:e:\2-1\spl-1\console_addchecker.cpp
@@ -33,15 +33,17 @@
 1646324358 source:e:\2-1\spl-1\console_removechecker.cpp
 	"header.h"
 
-1646468566 source:e:\2-1\spl-1\play.cpp
+1646502773 source:e:\2-1\spl-1\play.cpp
 	"header.h"
 
 1646370479 source:e:\2-1\spl-1\kill.cpp
 	"header.h"
 
-1646329848 source:e:\2-1\spl-1\nocheckers.cpp
+1646502848 source:e:\2-1\spl-1\nocheckers.cpp
 	"header.h"
 
-1646368845 source:e:\2-1\spl-1\nomove.cpp
+1646476464 source:e:\2-1\spl-1\nomove.cpp
 	"header.h"
+
+1646795737 source:e:\2-1\spl-1\king_move.cpp
 
