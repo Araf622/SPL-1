@@ -1,4 +1,3 @@
-
 #include "header.h"
 
 void start(){
@@ -28,13 +27,4 @@ void start(){
     setfillstyle(SOLID_FILL, BLACK);
     rectangle(550,370, 950, 420);
     floodfill(551, 371, WHITE);
-
-    settextstyle(1, 0, 4);
-    setcolor(WHITE);
-    outtextxy(560, 450, "Play With Friends");
-
-    setcolor(WHITE);
-    setfillstyle(SOLID_FILL, BLACK);
-    rectangle(550,440, 950, 490);
-    floodfill(551, 441, WHITE);
 }

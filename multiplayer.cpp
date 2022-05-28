@@ -1,6 +1,9 @@
+
 #include "header.h"
 
-void play(char checker_board[][8]){
+void multiplayer(char checker_board[][8]){
+
+    cout<<"we are at multiplayer"<<endl;
     int move_selector = 0;      // to identify movement
     int player_selector = 1;    // to identify player
     int source_x, source_y;     // from which position to select
@@ -12,20 +15,27 @@ void play(char checker_board[][8]){
     int cur_x, cur_y;
     POINT cursor;
     int click[2];
+    int AI_Source[2], AI_Destination[2];
     bool check_move = true;
     bool check_king_move = true;
     int i, j,k;
     bool flag = true;
+    int loop = 0;
 
+    cout << "Beginning " << endl;
+    cout << "Initial1 player selector: " << player_selector << endl;
     while(1){
-
+        cout << "Initial2 player selector: " << player_selector << endl;
         while(1){
+            cout << "Initial" << endl;
+            cout << "Initial3 player selector: " << player_selector << endl;
+            cout << "Dekh halar po" << endl;
             source_x = 100, source_y =100;
             dest_x = 100, dest_y = 100;
 
             // ******** PLAYER 1 **********
             if(player_selector%2){
-                cout << "Player 1's turn :" << endl;
+                cout << "Player 1's turn: "<< endl;
                 //REMOVE PLAYER 2 MENU
                 setcolor(WHITE);
                 rectangle(50,100, 440, 260);
@@ -42,12 +52,10 @@ void play(char checker_board[][8]){
                 //  ********CHECKS WIN CONDITION (NO MOVE) *****
                 check_move = no_move(checker_board ,'1');
                 if(check_move == false){
-
                     // ***CHECK KING'S MOVE **///
                     check_king_move = checkKingMove(checker_board, '4');
                     if(check_king_move == false){
                         cout << "\t\t\t" << "PLAYER 2 WON!!" << endl;
-
                         // *** SHOW RESULT IN GRAPHICS ****
                         settextstyle(3, 4, 4);
                         setcolor(LIGHTBLUE);
@@ -65,7 +73,6 @@ void play(char checker_board[][8]){
 
                 // ask for checker until right position is entered
                 while(1){
-
                     //  ......SELECT CHECKER .........
                     // ****INPUT IN GRAPHICS **
                     cout << "Select checker : ";
@@ -79,7 +86,6 @@ void play(char checker_board[][8]){
 
                     source_y = find_y_position(click[0]);
                     source_x = find_x_position(click[1]);
-
 
                     if((checker_board[source_y][source_x] == '1' || checker_board[source_y][source_x] == '4') && (source_y >=0 && source_y <=7) && (source_x>=0 && source_x<=7)){
                         setcolor(WHITE);
@@ -98,7 +104,9 @@ void play(char checker_board[][8]){
                         //printWrongMessage();
                     }
 
+                    //delay(600);
                 }
+                bool quit = false;
                 // ask for destination until right one is entered
                 while(1){
                     //remove Player 1 Select Checker menu
@@ -114,6 +122,7 @@ void play(char checker_board[][8]){
                     setcolor(LIGHTBLUE);
                     setbkcolor(BLACK);
                     outtextxy(400, 250, "Select Desination");
+                    //cin >> dest_y >> dest_x;*/
 
                     get_destination_click(click);
 
@@ -135,7 +144,7 @@ void play(char checker_board[][8]){
                                     //move
                                     console_removeChecker(checker_board,source_x, source_y);
                                     remove_checker(source_y, source_x);
-
+                                    cout<<"#3............."<<endl;
                                     if(dest_y == 0){
                                         cout << "**" <<dest_y << "**" << dest_x << endl;
                                         console_addChecker(checker_board, dest_x, dest_y, '4');
@@ -146,9 +155,12 @@ void play(char checker_board[][8]){
                                     else{
                                         console_addChecker(checker_board, dest_x, dest_y, '1');
                                         add_checker(dest_y, dest_x, '1');
+                                        cout << "hehehehe"<< endl;
                                     }
 
                                     player_selector++;
+                                    cout << "#1Player selector change : " << player_selector << endl;
+                                    quit = true;
                                     break;
                                 }
 
@@ -159,6 +171,7 @@ void play(char checker_board[][8]){
                                     if(!is_kill){
                                         cout << "Wrong move"<<endl;
                                         printWrongMessage();
+                                        quit = true;
                                         break;
                                     }
                                     p2_checkers--;
@@ -174,11 +187,14 @@ void play(char checker_board[][8]){
                                         console_addChecker(checker_board, dest_x, dest_y,'1');
                                         add_checker(dest_y, dest_x, '1');
                                     }
+
+                                    quit = true;
                                     break;
                                 }
 
                                     else{
                                         printWrongMessage();
+                                        quit = true;
                                         break;
                                     }
                                 }
@@ -186,6 +202,8 @@ void play(char checker_board[][8]){
                                     cout << "NOOOO-1\n" << endl;
                                     cout << "Wrong move!" << endl;
                                     printWrongMessage();
+
+                                    quit = true;
                                     break;
                                 }
                             }
@@ -193,6 +211,7 @@ void play(char checker_board[][8]){
                             else{
                                 cout << "Wrong move!" << endl;
                                 printWrongMessage();
+
                             }
                         }
 
@@ -210,6 +229,7 @@ void play(char checker_board[][8]){
                                         if(!is_move){
                                             cout << "Wrong move"<<endl;
                                             printWrongMessage();
+                                            quit = true;
                                             break;
                                         }
                                         console_removeChecker(checker_board,source_x, source_y);
@@ -219,6 +239,7 @@ void play(char checker_board[][8]){
                                         add_checker(dest_y, dest_x, '4');
 
                                         player_selector++;
+                                        quit = true;
                                         break;
                                     }
                                     p2_checkers--;
@@ -236,6 +257,7 @@ void play(char checker_board[][8]){
                                     if(!is_move){
                                         printWrongMessage();
                                         cout << "Wrong move"<<endl;
+                                        quit = true;
                                         break;
                                     }
 
@@ -246,6 +268,7 @@ void play(char checker_board[][8]){
                                     add_checker(dest_y, dest_x, '4');
 
                                     player_selector++;
+                                    quit = true;
                                     break;
                                 }
 
@@ -260,16 +283,20 @@ void play(char checker_board[][8]){
                         else{
                             cout << "Wrong move!" << endl;
                             printWrongMessage();
+                            quit = true;
                             break;
                         }
                         //delay(600);
                     }
-
+                    if(quit)
+                        break;
             }
+
 
             //***** PLAYER 2 ***********
             else{
-                cout << "AI's turn :" << endl;
+                cout << "AI's turn: "<< endl;
+                delay(1000);
                 //remove Player 1 Menu
                 setcolor(WHITE);
                 rectangle(50,100, 440, 260);
@@ -301,64 +328,17 @@ void play(char checker_board[][8]){
                 setbkcolor(BLACK);
                 outtextxy(400, 200, "Player 2's move");
 
-                // ask for checker until right position is entered
-                while(1){
-
-                    cout << "Select checker : ";
-                    settextstyle(3, 4, 3);
-                    setcolor(LIGHTBLUE);
-                    setbkcolor(BLACK);
-                    outtextxy(400, 250, "Select Checker");
-
-                    //cin >> source_y >> source_x;    //matrix input
-                    get_source_click(click);
-                    source_y = find_y_position(click[0]);
-                    source_x = find_x_position(click[1]);
-
-
-                    //checks validity
-                    if((checker_board[source_y][source_x] == '2' || checker_board[source_y][source_x] == '8') && (source_x >=0 && source_y <=7)){
-                        setcolor(WHITE);
-                        rectangle(50,270,440,320);
-                        setfillstyle(SOLID_FILL, LIGHTBLUE);
-                        floodfill(51,271,WHITE);
-
-                        setcolor(LIGHTBLUE);
-                        rectangle(50,270,440,320);
-
-                        move_selector++;
-                        break;
-                    }
-                    else{
-                        cout << "Wrong selection!" << endl;
-                    }
-
-                }
-
-                // ask for destination until right one is entered
-                while(1){
-
-                    //remove PLAYER 2 SELECT CHECKER MENU
-                    setcolor(LIGHTBLUE);
-                    setfillstyle(SOLID_FILL, LIGHTBLUE);
-                    rectangle(400,250, 450, 300);
-                    floodfill(401, 251, LIGHTBLUE);
-
-                    cout << "Select destination : ";
-                    settextstyle(3, 4, 3);
-                    setcolor(LIGHTBLUE);
-                    setbkcolor(BLACK);
-                    outtextxy(400, 250, "Select Destination");
-                    //cin >> dest_y >> dest_x;
-
-                    get_destination_click(click);
-
-
-                    dest_y = find_y_position(click[0]);
-                    dest_x = find_x_position(click[1]);
-
-                    int diff_x = dest_x - source_x;
-                    int diff_y = dest_y - source_y;
+                AI_moveSelector(checker_board, AI_Source, AI_Destination);
+                source_y = AI_Source[0];
+                source_x = AI_Source[1];
+                dest_y = AI_Destination[0];
+                dest_x = AI_Destination[1];
+                loop++;
+                //if(loop == 2) closegraph();
+                cout << "Source " << source_y << " " << source_x << endl;
+                cout << "Dest " << dest_y << " " << dest_x << endl;
+                int diff_x = dest_x - source_x;
+                int diff_y = dest_y - source_y;
 
 
                     //  *** NORMAL CHECKER ***
@@ -382,6 +362,7 @@ void play(char checker_board[][8]){
                                         add_checker(dest_y, dest_x, '8');
                                     }
                                     player_selector++;
+                                    cout << "#2Player selector change : " << player_selector << endl;
                                     break;
                                 }
 
@@ -391,7 +372,7 @@ void play(char checker_board[][8]){
                                     if(!is_kill){
                                         cout << "Wrong move!"<<endl;
                                         printWrongMessage();
-                                        break;
+                                        //break;
                                     }
                                     p1_checkers--;
                                     console_removeChecker(checker_board, source_x, source_y);
@@ -404,26 +385,23 @@ void play(char checker_board[][8]){
                                         checker_board[dest_y][dest_x] = '8';
                                         add_checker(dest_y, dest_x, '8');
                                     }
-                                    break;
                                 }
 
                                 else{
                                     cout << "Wrong move!" << endl;
                                     printWrongMessage();
-                                    break;
+                                    //break;
                                 }
                             }
                             else{
                                 cout << "Wrong move!" << endl;
                                 printWrongMessage();
-                                break;
+                                //break;
                             }
                         }
 
                     }
-
-                    //      **** KING CHECKER ****
-                    else if( checker_board[source_y][source_x] == '8'){
+                       else if( checker_board[source_y][source_x] == '8'){
                             if((dest_x>=0 && dest_x <=7) && (dest_y >= 0 && dest_y <=7)){
 
                                 // ** KILL MOVE **
@@ -485,11 +463,9 @@ void play(char checker_board[][8]){
                         printWrongMessage();
                         break;
                     }
-
-                    //delay(600);
-                 }
-
+                    break;
             }
+
             system("cls");
             cout << endl;
             for(int i = 0; i <= 7; i++){
@@ -498,7 +474,10 @@ void play(char checker_board[][8]){
                 }
                 cout << endl;
             }
+            //-------
+            //cout << "Player selector : " << player_selector << endl;
         }
-        getch();
+        cout << "``````````````````````````````````````````````````PLAYER SELECTOR : " << player_selector << endl;
     }
 }
+

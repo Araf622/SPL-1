@@ -32,7 +32,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="AI_moveSelector.cpp" />
 		<Unit filename="addChecker.cpp" />
+		<Unit filename="checkKill.cpp" />
+		<Unit filename="checkKingKill.cpp" />
+		<Unit filename="checkKingMove.cpp" />
 		<Unit filename="checkerBoard.cpp" />
 		<Unit filename="checkerBoardConsole.cpp" />
 		<Unit filename="console_addChecker.cpp" />
@@ -44,11 +48,15 @@
 		<Unit filename="get_source_click.cpp" />
 		<Unit filename="header.h" />
 		<Unit filename="kill.cpp" />
+		<Unit filename="kingChecker.cpp" />
+		<Unit filename="kingKill.cpp" />
 		<Unit filename="king_move.cpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="multiplayer.cpp" />
 		<Unit filename="noCheckers.cpp" />
 		<Unit filename="noMove.cpp" />
 		<Unit filename="play.cpp" />
+		<Unit filename="printMessage.cpp" />
 		<Unit filename="removeCircle.cpp" />
 		<Unit filename="select_mode.cpp" />
 		<Unit filename="start_page.cpp" />
