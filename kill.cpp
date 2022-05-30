@@ -10,17 +10,21 @@ int kill(char checker_board[][8],int source_x, int source_y, int diff_x, int dif
     else if(diff_y == -2) y = source_y - 1;
 
     if(checker == '1'){
-        if(checker_board[y][x] == '2' && checker_board[source_y+diff_y][source_x+diff_x] == '0'){
-            checker_board[y][x] = '0';
-            remove_checker(y,x);
-            return 1;
+        if((checker_board[y][x] == '2' || checker_board[y][x] == '8') && checker_board[source_y+diff_y][source_x+diff_x] == '0'){
+            if((source_y+diff_y >=0 && source_y+diff_y <=7) && (source_x+diff_x >=0 && source_x+diff_x <=7)){
+                checker_board[y][x] = '0';
+                remove_checker(y,x);
+                return 1;
+            }
         }
     }
     else if(checker == '2'){
-        if(checker_board[y][x] == '1' && checker_board[source_y+diff_y][source_x+diff_x] == '0'){
-            checker_board[y][x] = '0';
-            remove_checker(y,x);
-            return 1;
+        if((checker_board[y][x] == '1' || checker_board[y][x] == '4') && checker_board[source_y+diff_y][source_x+diff_x] == '0'){
+            if((source_y+diff_y >=0 && source_y+diff_y <=7) && (source_x+diff_x >=0 && source_x+diff_x <=7)){
+                checker_board[y][x] = '0';
+                remove_checker(y,x);
+                return 1;
+            }
         }
     }
     return 0;

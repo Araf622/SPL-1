@@ -41,16 +41,15 @@
 		<Unit filename="checkerBoardConsole.cpp" />
 		<Unit filename="console_addChecker.cpp" />
 		<Unit filename="console_removeChecker.cpp" />
-		<Unit filename="draw_checkers.cpp" />
 		<Unit filename="findPosition.cpp" />
 		<Unit filename="get_destination_click.cpp" />
 		<Unit filename="get_mode_click.cpp" />
 		<Unit filename="get_source_click.cpp" />
 		<Unit filename="header.h" />
+		<Unit filename="intructionsPage.cpp" />
 		<Unit filename="kill.cpp" />
 		<Unit filename="kingChecker.cpp" />
 		<Unit filename="kingKill.cpp" />
-		<Unit filename="king_move.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="multiplayer.cpp" />
 		<Unit filename="noCheckers.cpp" />

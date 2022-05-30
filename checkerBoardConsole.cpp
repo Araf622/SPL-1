@@ -10,6 +10,7 @@ void checkerBoard(char checker_board[][8]){
                 else if(i>=5) checker_board[i][j] = '1';           // player 1's checkers
                 else checker_board[i][j] = '0';
             }
+            else checker_board[i][j] = '0';
         }
     }
 }
@@ -63,25 +64,5 @@ void draw_consoleCheckerBoard(char checker_board[][8]){
         x=450;
         y+=80;
     }
-    //play(checker_board);
-
-    /*cout << endl << endl;
-
-    cout << "\t\t\t\t";
-    cout << "    ";
-    for(k=0; k<8;k++)  cout << k << "   ";
-    cout<<endl<<endl;
-
-    for(i=0; i<8; i++){
-        cout << "\t\t\t\t";
-        cout << i << "  ";
-        for(j=0; j<8; j++){
-           if(checker_board[i][j] == '1') cout << "_1_|";
-           else if (checker_board[i][j] == '2')   cout << "_2_|";
-           else cout << "_ _|";
-        }
-        cout << endl;
-    }
-    cout << endl << endl;*/
 }
 

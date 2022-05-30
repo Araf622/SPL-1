@@ -16,37 +16,37 @@ bool checkKingMove(char checker_board[][8] ,char checker){
 
 
                     // ******* CHECKS UPPER LEFT MOVE ****
-                    else if(((i-1)>=0 && (i-1) <=7) && ((j-1)>=0 && (j-1)<=7)){
+                    if(((i-1)>=0 && (i-1) <=7) && ((j-1)>=0 && (j-1)<=7)){
                         if(checker_board[i-1][j-1] == '0')  return true;
                     }
 
 
                      // ****** CHECKS LOWER RIGHT MOVE ******
-                    else if(((i+1)>=0 && (i+1) <=7) && ((j+1)>=0 && (j+1)<=7)){
+                    if(((i+1)>=0 && (i+1) <=7) && ((j+1)>=0 && (j+1)<=7)){
                         if(checker_board[i+1][j+1] == '0')  return true;
                     }
 
 
                     // ******* CHECKS LOWER LEFT MOVE ****
-                    else if(((i+1)>=0 && (i+1) <=7) && ((j-1)>=0 && (j-1)<=7)){
+                    if(((i+1)>=0 && (i+1) <=7) && ((j-1)>=0 && (j-1)<=7)){
                         if(checker_board[i+1][j-1] == '0')  return true;
                     }
 
 
                     // ** CHECK KILL FOR UPPER RIGHT CHECKER ****
-                    else if(checkKingKill(checker_board, j, i, 2, -2, '4'))   return true;
+                    if(checkKingKill(checker_board, j, i, 2, -2, '4'))   return true;
 
 
                     // *** CHECK KILL FOR UPPER RIGHT CHECKER ***
-                    else if(checkKingKill(checker_board, j, i, -2, -2, '4'))   return true;
+                    if(checkKingKill(checker_board, j, i, -2, -2, '4'))   return true;
 
 
                     // ** CHECK KILL FOR LOWER RIGHT CHECKER ****
-                    else if(checkKingKill(checker_board, j, i, 2, 2, '4'))   return true;
+                    if(checkKingKill(checker_board, j, i, 2, 2, '4'))   return true;
 
 
                     // *** CHECK KILL FOR UPPER RIGHT CHECKER ***
-                    else if(checkKingKill(checker_board, j, i, -2, 2, '4'))   return true;
+                    if(checkKingKill(checker_board, j, i, -2, 2, '4'))   return true;
 
                 }
 
@@ -66,37 +66,37 @@ bool checkKingMove(char checker_board[][8] ,char checker){
 
 
                     // ******* CHECKS UPPER LEFT MOVE ****
-                    else if(((i-1)>=0 && (i-1) <=7) && ((j-1)>=0 && (j-1)<=7)){
+                    if(((i-1)>=0 && (i-1) <=7) && ((j-1)>=0 && (j-1)<=7)){
                         if(checker_board[i-1][j-1] == '0')  return true;
                     }
 
 
                     // ****** CHECKS LOWER RIGHT MOVE ******
-                    else if(((i+1)>=0 && (i+1) <=7) && ((j+1)>=0 && (j+1)<=7)){
+                    if(((i+1)>=0 && (i+1) <=7) && ((j+1)>=0 && (j+1)<=7)){
                         if(checker_board[i+1][j+1] == '0')  return true;
                     }
 
 
                     // ******* CHECKS LOWER LEFT MOVE ****
-                    else if(((i+1)>=0 && (i+1) <=7) && ((j-1)>=0 && (j-1)<=7)){
+                    if(((i+1)>=0 && (i+1) <=7) && ((j-1)>=0 && (j-1)<=7)){
                         if(checker_board[i+1][j-1] == '0')  return true;
                     }
 
 
                     // ** CHECK KILL FOR UPPER RIGHT CHECKER ****
-                    else if(checkKingKill(checker_board, j, i, 2, -2, '8'))   return true;
+                    if(checkKingKill(checker_board, j, i, 2, -2, '8'))   return true;
 
 
                     // *** CHECK KILL FOR UPPER LEFT CHECKER ***
-                    else if(checkKingKill(checker_board, j, i, -2, -2, '8'))   return true;
+                    if(checkKingKill(checker_board, j, i, -2, -2, '8'))   return true;
 
 
                     // ** CHECK KILL FOR LOWER RIGHT CHECKER ****
-                    else if(checkKingKill(checker_board, j, i, 2, 2, '8'))   return true;
+                    if(checkKingKill(checker_board, j, i, 2, 2, '8'))   return true;
 
 
                     // *** CHECK KILL FOR UPPER LEFT CHECKER ***
-                    else if(checkKingKill(checker_board, j, i, -2, 2, '8'))   return true;
+                    if(checkKingKill(checker_board, j, i, -2, 2, '8'))   return true;
 
                 }
             }

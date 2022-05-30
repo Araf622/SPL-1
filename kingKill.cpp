@@ -26,4 +26,3 @@ int kingKill(char checker_board[][8],int source_x, int source_y, int diff_x, int
     }
     return 0;
 }
-

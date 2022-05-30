@@ -55,4 +55,3 @@ bool kingMove(int source_y, int source_x, int dest_y, int dest_x, char checker_b
 
     return flag;
 }
-

@@ -23,4 +23,3 @@ bool checkKill(char checker_board[][8],int source_x, int source_y, int diff_x, i
     return false;
 }
 
-

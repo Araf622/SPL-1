@@ -11,16 +11,17 @@ bool checkKingKill(char checker_board[][8],int source_x, int source_y, int diff_
 
      if(checker == '4'){
         if((checker_board[y][x] == '2' || checker_board[y][x] == '8') && checker_board[source_y+diff_y][source_x+diff_x] == '0'){
-            return true;
+            if((source_y+diff_y >=0 && source_y+diff_y <=7) && (source_x+diff_x >=0 && source_x+diff_x<=7))
+                return true;
         }
     }
 
     else if(checker == '8'){
         if((checker_board[y][x] == '1' || checker_board[y][x] == '4') && checker_board[source_y+diff_y][source_x+diff_x] == '0'){
-            return true;
+            if((source_y+diff_y >=0 && source_y+diff_y <=7) && (source_x+diff_x >=0 && source_x+diff_x<=7))
+                return true;
         }
     }
     return false;
 }
-
 

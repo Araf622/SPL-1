@@ -26,9 +26,7 @@ void AI_moveSelector(char checker_board[][8], int AI_Source[], int AI_Destinatio
             get_killed = 0, king_killed = 0;
 
             if(checker_board[i][j] == '2'){
-
                     if(checkKill(checker_board, j, i, 2, 2, '2') || checkKill(checker_board, j, i, -2, 2, '2')){
-                            cout << ".................................kill" << endl;
                             kills++;
                             source_x[1] = j;
                             source_y[1] = i;
@@ -52,7 +50,6 @@ void AI_moveSelector(char checker_board[][8], int AI_Source[], int AI_Destinatio
                     }
 
                     else if(i == 6 && (j>0 && j<7) && (checker_board[i+1][j+1] == '0' || checker_board[i+1][j-1] == '0')){
-                            cout << "king" << endl;
                             kings++;
                             source_x[2] = j;
                             source_y[2] = i;
@@ -77,36 +74,22 @@ void AI_moveSelector(char checker_board[][8], int AI_Source[], int AI_Destinatio
                     else{
                             short s_x3, s_y3, m_x3, m_y3, temp1=0, temp2=0;
                             short s_x2, s_y2, m_x2, m_y2;
-                        //cout << "mile ja bhai" << endl;
                             if(((i+1)>=0 && (i+1)<=7) && ((j+1)>=0 && (j+1) <= 7) && checker_board[i+1][j+1] == '0'){
-                                /*tmp_points[3]= tmp_points[3] + 100;
-                                source_x[3] = j;
-                                source_y[3] = i;
-                                moved_x[3] = j+1;
-                                moved_y[3] = i+1;*/
-
                                 temp1+=100;
                                 s_x3 = j;   s_y3 = i;
                                 m_x3 = j+1; m_y3 = i+1;
 
                                 if(checker_board[m_y3+1][m_x3+1] == '1' || checkKill(checker_board, m_x3-1, m_y3+1, 2, -2, '1'))
                                     temp1-=50;
-                                    //tmp_points[3]= tmp_points[3] - 50;
                             }
-                            if(((i+1)>=0 && (i+1)<= 7) && ((j-1)>=0 && (j-1) < 7) && checker_board[i+1][j-1] == '0'){
-                                /*tmp_points[3]= =tmp_points[3] + 100;
-                                source_x[3] = j;
-                                source_y[3] = i;
-                                moved_x[3] = j-1;
-                                moved_y[3] = i+1;*/
 
+                            if(((i+1)>=0 && (i+1)<= 7) && ((j-1)>=0 && (j-1) < 7) && checker_board[i+1][j-1] == '0'){
                                 temp2+=100;
                                 s_x2 = j;   s_y2 = i;
                                 m_x2 = j-1; m_y2 = i+1;
 
                                 if(checkKill(checker_board, m_x2+1, m_y2 + 1,-2, -2, '1') || checker_board[m_y2+1][m_x2-1] == '1')
                                     temp2 -= 50;
-                                    //tmp_points[3]=tmp_points[3] - 50;
                             }
 
                             if(temp1 > temp2){
@@ -122,6 +105,8 @@ void AI_moveSelector(char checker_board[][8], int AI_Source[], int AI_Destinatio
                     }
             }
 
+
+            /**********KING CHECKER**********/
             else if(checker_board[i][j] == '8'){
                     if(checkKingKill(checker_board, j, i, 2, -2, '8')){
                             source_x[4] = j;
@@ -170,12 +155,58 @@ void AI_moveSelector(char checker_board[][8], int AI_Source[], int AI_Destinatio
                             }
                     }
 
+                    /********************IF NO KILL**********************/
+                    else{
+                            //short temp1=0, temp2=0, temp3=0, temp4=0;
+                            short temp[10]={0};
+                            short m_x[6]={0}, m_y[6]={0};
+                            /*short s_x[4], s_y4, m_x[4], m_y4;
+                            short s_x[3], s_y3, m_x[3], m_y3;
+                            short s_x[2], s_y2, m_x[2], m_y2;
+                            short s_x[1], s_y1, m_x[1], m_y1;*/
+
+                            if(((i+1)>=0 && (i+1)<=7) && ((j+1)>=0 && (j+1) <= 7) && checker_board[i+1][j+1] == '0'){
+                                temp[3]+=200;
+                                m_x[3] = j+1; m_y[3] = i+1;
+
+                                if(checker_board[m_y[3]+1][m_x[3]+1] == '1' || checker_board[m_y[3]+1][m_x[3]+1] == '4' || checkKill(checker_board, m_x[3]-1, m_y[3]+1, 2, -2, '1') || checkKingKill(checker_board, m_x[3]-1, m_y[3]+1, 2, -2, '1') || checkKingKill(checker_board, m_x[3]-1, m_y[3]-1, 2, 2, '1'))
+                                    temp[1]-=150;
+                            }
+
+                            if(((i+1)>=0 && (i+1)<= 7) && ((j-1)>=0 && (j-1) < 7) && checker_board[i+1][j-1] == '0'){
+                                temp[2]+=200;
+                                m_x[2] = j-1; m_y[2] = i+1;
+
+                                if(checkKill(checker_board, m_x[2]-1, m_y[2] + 1, 2, -2, '1') || checkKingKill(checker_board, m_x[2]-1, m_y[2]+1,2, -2, '1') || checkKingKill(checker_board, m_x[2]-1, m_y[2]-1,2, 2, '1') || checker_board[m_y[2]+1][m_x[2]-1] == '4'  || checker_board[m_y[2]+1][m_x[2]-1] == '1')
+                                    temp[2] -= 150;
+                            }
+
+                            if(((i-1)>=0 && (i-1)<= 7) && ((j-1)>=0 && (j-1) < 7) && checker_board[i-1][j-1] == '0'){
+                                temp[1]+=200;
+                                //s_x[1] = j;   s_y[1] = i;
+                                m_x[1] = j-1; m_y[1] = i-1;
+                                if(checkKill(checker_board, m_x[1]-1, m_y[1] + 1,2, -2, '1')  || checkKingKill(checker_board, m_x[1]-1, m_y[1] + 1,2,-2, '4')  || checker_board[m_y[1]-1][m_x[1]-1] == '4' || checkKingKill(checker_board, m_x[1]+1, m_y[1]-1,-2,2, '4'))
+                                    temp[1] -= 150;
+                            }
+                             if(((i-1)>=0 && (i-1)<= 7) && ((j+1)>=0 && (j+1) < 7) && checker_board[i-1][j+1] == '0'){
+                                temp[4]+=200;
+                                //s_x[4] = j;   s_y[4] = i;
+                                m_x[4] = j+1; m_y[4] = i-1;
+                                if(checkKill(checker_board, m_x[4]+1, m_y[4] + 1, -2, -2, '1')  || checkKingKill(checker_board, m_x[4]+1, m_y[4] + 1,-2, -2, '4')  || checker_board[m_y[4]-1][m_x[4]+1] == '4' || checkKingKill(checker_board, m_x[4]-1, m_y[4]-1, -2, 2, '4'))
+                                    temp[4] -= 150;
+                            }
+                            short ind = max_element(temp+1, temp+7) - temp;
+                            tmp_points[5] = temp[ind];
+                            source_x[5] = j;            source_y[5] = i;
+                            moved_x[5] = m_x[ind];    moved_y[5] = m_y[ind];
+                    }
+
                     tmp_points[4] = king_kills*500 -king_killed*150;
             }
 
             short int index = max_element(tmp_points+1, tmp_points+10) - tmp_points;
 
-            if(tmp_points[index] > 0){
+            if(tmp_points[index] > points){
                 points  = tmp_points[index];
                 source_y[0] = source_y[index];
                 source_x[0] = source_x[index];

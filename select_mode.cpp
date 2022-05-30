@@ -11,17 +11,13 @@ int select_mode(){
         x = click[1];
 
         if(x>=550 && x <= 950){
-            if(y>=300 && y<=350){
+            if(y>=140 && y<=190){
                 mode = 1;
                 break;
             }
 
-            else if(y>=370 && y<=420){
+            else if(y>=210 && y<=260){
                 mode = 2;
-                break;
-            }
-            else if(y>=440 && y<=490){
-                mode = 3;
                 break;
             }
         }

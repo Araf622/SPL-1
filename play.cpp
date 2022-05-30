@@ -1,7 +1,6 @@
 #include "header.h"
 
 void play(char checker_board[][8]){
-    int move_selector = 0;      // to identify movement
     int player_selector = 1;    // to identify player
     int source_x, source_y;     // from which position to select
     int dest_x, dest_y;         // to which position to go
@@ -9,19 +8,18 @@ void play(char checker_board[][8]){
     bool is_move;
     int p1_checkers = 12;       // no of PLAYER 1 checkers
     int p2_checkers = 12;       // no of PLAYER 2 checkers
-    int cur_x, cur_y;
-    POINT cursor;
     int click[2];
-    bool check_move = true;
+    bool check_move;
     bool check_king_move = true;
-    int i, j,k;
-    bool flag = true;
+    bool flag = false;
+    bool checkNum = true;
 
     while(1){
 
         while(1){
             source_x = 100, source_y =100;
             dest_x = 100, dest_y = 100;
+            check_move = true;
 
             // ******** PLAYER 1 **********
             if(player_selector%2){
@@ -37,7 +35,11 @@ void play(char checker_board[][8]){
 
 
                 // ********CHECKS WIN CONDITION (NO CHECKERS) *****
-                no_checkers(p2_checkers, '1');
+                checkNum = no_checkers(checker_board,p2_checkers, '1');
+                if(checkNum == false){
+                    flag = true;
+                    break;
+                }
 
                 //  ********CHECKS WIN CONDITION (NO MOVE) *****
                 check_move = no_move(checker_board ,'1');
@@ -46,13 +48,14 @@ void play(char checker_board[][8]){
                     // ***CHECK KING'S MOVE **///
                     check_king_move = checkKingMove(checker_board, '4');
                     if(check_king_move == false){
-                        cout << "\t\t\t" << "PLAYER 2 WON!!" << endl;
-
-                        // *** SHOW RESULT IN GRAPHICS ****
-                        settextstyle(3, 4, 4);
-                        setcolor(LIGHTBLUE);
+                        draw_consoleCheckerBoard(checker_board);
+                        settextstyle(10, 4, 4);
+                        setcolor(WHITE);
                         setbkcolor(BLACK);
-                        outtextxy(400, 340, "Player 2 WON!! No move");
+                        outtextxy(400, 450, "PLAYER 2 WON!!");
+                        getch();
+                        flag = true;
+                        break;
                     }
                 }
 
@@ -90,7 +93,6 @@ void play(char checker_board[][8]){
                         setcolor(LIGHTBLUE);
                         rectangle(50,270,440,320);
 
-                        move_selector++;
                         break;
                     }
                     else{
@@ -137,10 +139,8 @@ void play(char checker_board[][8]){
                                     remove_checker(source_y, source_x);
 
                                     if(dest_y == 0){
-                                        cout << "**" <<dest_y << "**" << dest_x << endl;
                                         console_addChecker(checker_board, dest_x, dest_y, '4');
                                         add_checker(dest_y, dest_x, '4');
-                                        cout << "*****DRAW*******"<< endl;
                                     }
 
                                     else{
@@ -183,8 +183,6 @@ void play(char checker_board[][8]){
                                     }
                                 }
                                 else{
-                                    cout << "NOOOO-1\n" << endl;
-                                    cout << "Wrong move!" << endl;
                                     printWrongMessage();
                                     break;
                                 }
@@ -280,7 +278,11 @@ void play(char checker_board[][8]){
                 rectangle(50,100, 440, 260);
 
                 // ******** CHECKS WIN CONDITION (NO CHECKERS) *****
-                no_checkers(p1_checkers, '2');
+                checkNum = no_checkers(checker_board,p1_checkers, '2');
+                if(checkNum == false){
+                    flag = true;
+                    break;
+                }
 
                 // *******CHECKS WIN CONDITION (NO MOVE) ********
                 check_move = no_move(checker_board ,'2');
@@ -288,10 +290,14 @@ void play(char checker_board[][8]){
                     check_king_move = checkKingMove(checker_board, '8');
                     if(check_king_move == false){
                         cout << "\t\t\t" << "PLAYER 1 WON!!" << endl;
-                        settextstyle(3, 4, 4);
+                        draw_consoleCheckerBoard(checker_board);
+                        settextstyle(10, 4, 4);
                         setcolor(WHITE);
                         setbkcolor(BLACK);
-                        outtextxy(400, 340, "Player 1 WON!! No move");
+                        outtextxy(400, 450, "PLAYER 1 WON!!");
+                        getch();
+                        flag = true;
+                        break;
                     }
                 }
 
@@ -325,8 +331,6 @@ void play(char checker_board[][8]){
 
                         setcolor(LIGHTBLUE);
                         rectangle(50,270,440,320);
-
-                        move_selector++;
                         break;
                     }
                     else{
@@ -498,6 +502,10 @@ void play(char checker_board[][8]){
                 }
                 cout << endl;
             }
+        }
+
+        if(flag){
+            break;
         }
         getch();
     }

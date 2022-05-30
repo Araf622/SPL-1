@@ -3,7 +3,6 @@
 
 void multiplayer(char checker_board[][8]){
 
-    cout<<"we are at multiplayer"<<endl;
     int move_selector = 0;      // to identify movement
     int player_selector = 1;    // to identify player
     int source_x, source_y;     // from which position to select
@@ -12,26 +11,18 @@ void multiplayer(char checker_board[][8]){
     bool is_move;
     int p1_checkers = 12;       // no of PLAYER 1 checkers
     int p2_checkers = 12;       // no of PLAYER 2 checkers
-    int cur_x, cur_y;
-    POINT cursor;
     int click[2];
     int AI_Source[2], AI_Destination[2];
-    bool check_move = true;
+    bool check_move;
     bool check_king_move = true;
-    int i, j,k;
-    bool flag = true;
-    int loop = 0;
+    bool checkNum = true;
+    bool flag = false;
 
-    cout << "Beginning " << endl;
-    cout << "Initial1 player selector: " << player_selector << endl;
     while(1){
-        cout << "Initial2 player selector: " << player_selector << endl;
         while(1){
-            cout << "Initial" << endl;
-            cout << "Initial3 player selector: " << player_selector << endl;
-            cout << "Dekh halar po" << endl;
             source_x = 100, source_y =100;
             dest_x = 100, dest_y = 100;
+            check_move = true;
 
             // ******** PLAYER 1 **********
             if(player_selector%2){
@@ -47,7 +38,11 @@ void multiplayer(char checker_board[][8]){
 
 
                 // ********CHECKS WIN CONDITION (NO CHECKERS) *****
-                no_checkers(p2_checkers, '1');
+                checkNum = no_checkers(checker_board,p2_checkers, '1');
+                if(checkNum == false){
+                    flag = true;
+                    break;
+                }
 
                 //  ********CHECKS WIN CONDITION (NO MOVE) *****
                 check_move = no_move(checker_board ,'1');
@@ -55,12 +50,14 @@ void multiplayer(char checker_board[][8]){
                     // ***CHECK KING'S MOVE **///
                     check_king_move = checkKingMove(checker_board, '4');
                     if(check_king_move == false){
-                        cout << "\t\t\t" << "PLAYER 2 WON!!" << endl;
-                        // *** SHOW RESULT IN GRAPHICS ****
-                        settextstyle(3, 4, 4);
-                        setcolor(LIGHTBLUE);
+                        draw_consoleCheckerBoard(checker_board);
+                        settextstyle(10, 4, 4);
+                        setcolor(WHITE);
                         setbkcolor(BLACK);
-                        outtextxy(400, 340, "Player 2 WON!! No move");
+                        outtextxy(400, 450, "PLAYER 2 WON!!");
+                        getch();
+                        flag = true;
+                        break;
                     }
                 }
 
@@ -101,10 +98,8 @@ void multiplayer(char checker_board[][8]){
                     }
                     else{
                         cout << "wrong move" << endl;
-                        //printWrongMessage();
                     }
 
-                    //delay(600);
                 }
                 bool quit = false;
                 // ask for destination until right one is entered
@@ -144,18 +139,14 @@ void multiplayer(char checker_board[][8]){
                                     //move
                                     console_removeChecker(checker_board,source_x, source_y);
                                     remove_checker(source_y, source_x);
-                                    cout<<"#3............."<<endl;
                                     if(dest_y == 0){
-                                        cout << "**" <<dest_y << "**" << dest_x << endl;
                                         console_addChecker(checker_board, dest_x, dest_y, '4');
                                         add_checker(dest_y, dest_x, '4');
-                                        cout << "*****DRAW*******"<< endl;
                                     }
 
                                     else{
                                         console_addChecker(checker_board, dest_x, dest_y, '1');
                                         add_checker(dest_y, dest_x, '1');
-                                        cout << "hehehehe"<< endl;
                                     }
 
                                     player_selector++;
@@ -199,8 +190,6 @@ void multiplayer(char checker_board[][8]){
                                     }
                                 }
                                 else{
-                                    cout << "NOOOO-1\n" << endl;
-                                    cout << "Wrong move!" << endl;
                                     printWrongMessage();
 
                                     quit = true;
@@ -209,7 +198,6 @@ void multiplayer(char checker_board[][8]){
                             }
 
                             else{
-                                cout << "Wrong move!" << endl;
                                 printWrongMessage();
 
                             }
@@ -307,18 +295,25 @@ void multiplayer(char checker_board[][8]){
                 rectangle(50,100, 440, 260);
 
                 // ******** CHECKS WIN CONDITION (NO CHECKERS) *****
-                no_checkers(p1_checkers, '2');
+                checkNum = no_checkers(checker_board,p1_checkers, '2');
+                if(checkNum == false){
+                    flag = true;
+                    break;
+                }
 
                 // *******CHECKS WIN CONDITION (NO MOVE) ********
                 check_move = no_move(checker_board ,'2');
                 if(check_move == false){
                     check_king_move = checkKingMove(checker_board, '8');
                     if(check_king_move == false){
-                        cout << "\t\t\t" << "PLAYER 1 WON!!" << endl;
-                        settextstyle(3, 4, 4);
+                        draw_consoleCheckerBoard(checker_board);
+                        settextstyle(10, 4, 4);
                         setcolor(WHITE);
                         setbkcolor(BLACK);
-                        outtextxy(400, 340, "Player 1 WON!! No move");
+                        outtextxy(400, 450, "PLAYER 1 WON!!");
+                        getch();
+                        flag = true;
+                        break;
                     }
                 }
 
@@ -333,8 +328,7 @@ void multiplayer(char checker_board[][8]){
                 source_x = AI_Source[1];
                 dest_y = AI_Destination[0];
                 dest_x = AI_Destination[1];
-                loop++;
-                //if(loop == 2) closegraph();
+
                 cout << "Source " << source_y << " " << source_x << endl;
                 cout << "Dest " << dest_y << " " << dest_x << endl;
                 int diff_x = dest_x - source_x;
@@ -465,19 +459,7 @@ void multiplayer(char checker_board[][8]){
                     }
                     break;
             }
-
-            system("cls");
-            cout << endl;
-            for(int i = 0; i <= 7; i++){
-                for(int j = 0; j <= 7; j++){
-                    cout << checker_board[i][j] << " ";
-                }
-                cout << endl;
-            }
-            //-------
-            //cout << "Player selector : " << player_selector << endl;
         }
-        cout << "``````````````````````````````````````````````````PLAYER SELECTOR : " << player_selector << endl;
+        if(flag)    break;
     }
 }
-

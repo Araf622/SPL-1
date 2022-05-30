@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1647671718 source:e:\2-1\spl-1\checkerboard.cpp
+1653843388 source:e:\2-1\spl-1\checkerboard.cpp
 	"header.h"
 
-1653764660 e:\2-1\spl-1\header.h
+1653863891 e:\2-1\spl-1\header.h
 	<bits/stdc++.h>
 	<graphics.h>
 	<windows.h>
 
-1653764616 source:e:\2-1\spl-1\main.cpp
+1653864341 source:e:\2-1\spl-1\main.cpp
 	"header.h"
 
 1645442502 source:e:\2-1\spl-1\draw_checkers.cpp
@@ -15,34 +15,34 @@
 1646324403 source:e:\2-1\spl-1\movecheckers.cpp
 	"header.h"
 
-1647671577 source:e:\2-1\spl-1\findposition.cpp
+1653843483 source:e:\2-1\spl-1\findposition.cpp
 	"header.h"
 
-1647671568 source:e:\2-1\spl-1\removecircle.cpp
+1653843624 source:e:\2-1\spl-1\removecircle.cpp
 	"header.h"
 
-1647671552 source:e:\2-1\spl-1\addchecker.cpp
+1653843371 source:e:\2-1\spl-1\addchecker.cpp
 	"header.h"
 
-1647671520 source:e:\2-1\spl-1\checkerboardconsole.cpp
+1653843399 source:e:\2-1\spl-1\checkerboardconsole.cpp
 	"header.h"
 
-1646324358 source:e:\2-1\spl-1\console_addchecker.cpp
+1653843428 source:e:\2-1\spl-1\console_addchecker.cpp
 	"header.h"
 
-1646324358 source:e:\2-1\spl-1\console_removechecker.cpp
+1653843438 source:e:\2-1\spl-1\console_removechecker.cpp
 	"header.h"
 
-1653764632 source:e:\2-1\spl-1\play.cpp
+1653870508 source:e:\2-1\spl-1\play.cpp
 	"header.h"
 
-1647671496 source:e:\2-1\spl-1\kill.cpp
+1653846780 source:e:\2-1\spl-1\kill.cpp
 	"header.h"
 
-1646502848 source:e:\2-1\spl-1\nocheckers.cpp
+1653868762 source:e:\2-1\spl-1\nocheckers.cpp
 	"header.h"
 
-1646476464 source:e:\2-1\spl-1\nomove.cpp
+1653849833 source:e:\2-1\spl-1\nomove.cpp
 	"header.h"
 
 1646795737 source:e:\2-1\spl-1\king_move.cpp
@@ -53,33 +53,39 @@
 1647671483 source:e:\2-1\spl-1\get_source_click.cpp
 	"header.h"
 
-1647671797 source:e:\2-1\spl-1\select_mode.cpp
+1653868016 source:e:\2-1\spl-1\select_mode.cpp
 	"header.h"
 
-1653764731 source:e:\2-1\spl-1\start_page.cpp
+1653867981 source:e:\2-1\spl-1\start_page.cpp
 	"header.h"
 
 1647671930 source:e:\2-1\spl-1\get_destination_click.cpp
 	"header.h"
 
-1653764182 source:e:\2-1\spl-1\ai_moveselector.cpp
+1653870631 source:e:\2-1\spl-1\ai_moveselector.cpp
 	"header.h"
 
-1653764224 source:e:\2-1\spl-1\checkkill.cpp
+1653843409 source:e:\2-1\spl-1\checkkill.cpp
 	"header.h"
 
-1653764325 source:e:\2-1\spl-1\checkkingkill.cpp
+1653846766 source:e:\2-1\spl-1\checkkingkill.cpp
 	"header.h"
 
-1653764371 source:e:\2-1\spl-1\kingchecker.cpp
+1653843541 source:e:\2-1\spl-1\kingchecker.cpp
 	"header.h"
 
-1653764528 source:e:\2-1\spl-1\kingkill.cpp
+1653843558 source:e:\2-1\spl-1\kingkill.cpp
 	"header.h"
 
-1653764563 source:e:\2-1\spl-1\multiplayer.cpp
+1653870565 source:e:\2-1\spl-1\multiplayer.cpp
 	"header.h"
 
-1653764600 source:e:\2-1\spl-1\printmessage.cpp
+1653843615 source:e:\2-1\spl-1\printmessage.cpp
+	"header.h"
+
+1653775158 source:e:\2-1\spl-1\checkkingmove.cpp
+	"header.h"
+
+1653864273 source:e:\2-1\spl-1\intructionspage.cpp
 	"header.h"
 
